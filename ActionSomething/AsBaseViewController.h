@@ -10,6 +10,6 @@
 
 @interface AsBaseViewController : UIViewController <AVLogInViewControllerDelegate, AVSignUpViewControllerDelegate>
 
-- (void)showLogInOrSignInView;
+- (void)showLogInOrSignInView:(BOOL)animated;
 
 @end

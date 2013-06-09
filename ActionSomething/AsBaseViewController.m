@@ -35,7 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showLogInOrSignInView
+- (void)showLogInOrSignInView:(BOOL)animated
 {
     AVLogInViewController *loginViewController = [[AVLogInViewController alloc] init];
     [loginViewController setDelegate:self];
@@ -46,7 +46,7 @@
     [loginViewController setFields:(AVLogInFieldsDefault & (~AVLogInFieldsDismissButton))];
 
     
-    [self presentViewController:loginViewController animated:YES completion:NULL];
+    [self presentViewController:loginViewController animated:animated completion:NULL];
 }
 
 #pragma mark - AVLogInViewControllerDelegate

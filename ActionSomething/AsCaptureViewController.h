@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsWord.h"
 
-@interface AsCaptureViewController : UIViewController
+@interface AsCaptureViewController : UIViewController<UIGestureRecognizerDelegate>
 
+@property (strong, nonatomic) AsWord* selectedWord;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIButton *finishButton;
+
+- (IBAction)cancelCapture:(id)sender;
+- (IBAction)finishCapture:(id)sender;
 @end

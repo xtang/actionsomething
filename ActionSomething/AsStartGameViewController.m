@@ -7,14 +7,13 @@
 //
 
 #import "AsStartGameViewController.h"
+#import "AsCaptureViewController.h"
 
 #define LEVEL_EASY 1
 #define LEVEL_NORMAL 2
 #define LEVEL_HARD 3
 
 @interface AsStartGameViewController ()
-
-@property (weak, nonatomic) NSArray *levelButtons;
 
 @end
 
@@ -23,9 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!self.levelButtons) {
-        self.levelButtons = @[self.level1Button, self.level2Button, self.level3Button];
-    }
+    NSArray *levelButtons = @[self.level1Button, self.level2Button, self.level3Button];
+
 	// Do any additional setup after loading the view.
     
     NSLog(@"call cloud code");
@@ -38,7 +36,7 @@
                 NSLog(@"level is out of bound: %d, with name: %@", level, name);
             } else {
                 level = level - 1;
-                [[self.levelButtons objectAtIndex:level] setTitle:name forState:UIControlStateNormal];
+                [[levelButtons objectAtIndex:level] setTitle:name forState:UIControlStateNormal];
             }
         }
     } else {
@@ -48,9 +46,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"asdf");
     if ([segue.identifier isEqualToString:@"CaptureView"]) {
         UIButton *triggerButton = (UIButton *)sender;
-        NSLog(@"%@", triggerButton.currentTitle);
+        NSString *name = triggerButton.currentTitle;
+        NSNumber *level = [NSNumber numberWithInt:triggerButton.tag];
+        AsWord *word = [[AsWord alloc] initWithName:name level:level];
+        [(AsCaptureViewController *)segue.destinationViewController setSelectedWord:word];
     }
 }
 

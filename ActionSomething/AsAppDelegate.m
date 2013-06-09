@@ -13,7 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [Parse useAVCloudCN];
+    [Parse useAVCloudCN];    
     [Parse setApplicationId:@"d4a233i3yewnd116r4765o9cqvp1l3hhp23ckhxc7twhggv9" clientKey:@"0drpria9hw4aqa7ycpesspzui4z0lj7ng9vvavei1oqbm3fo"];
     return YES;
 }

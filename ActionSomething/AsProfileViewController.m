@@ -29,6 +29,6 @@
 - (IBAction)logout:(id)sender {
     [AVUser logOut];
     [self.tabBarController setSelectedIndex:0];
-    [super showLogInOrSignInView];
+    [super showLogInOrSignInView:YES];
 }
 @end

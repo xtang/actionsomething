@@ -15,7 +15,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     if (![AVUser currentUser]) { // no User logged in
-        [super showLogInOrSignInView];
+        [super showLogInOrSignInView:NO];
     }
     
 }
