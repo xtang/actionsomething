@@ -1,0 +1,3 @@
+[submodule "thirdparties/GPUImage"]
+	path = thirdparties/GPUImage
+	url = git@github.com:RoCry/GPUImage.git

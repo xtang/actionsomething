@@ -46,8 +46,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"asdf");
-    if ([segue.identifier isEqualToString:@"CaptureView"]) {
+    if ([segue.identifier hasPrefix:@"CaptureView"]) {
         UIButton *triggerButton = (UIButton *)sender;
         NSString *name = triggerButton.currentTitle;
         NSNumber *level = [NSNumber numberWithInt:triggerButton.tag];

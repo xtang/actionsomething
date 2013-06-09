@@ -32,12 +32,18 @@ const float kTimerInterval = 0.05f;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+
     // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)cancelCapture:(id)sender {
     self.selectedWord = nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                      delegate:self
+                                             cancelButtonTitle:@"取消"
+                                        destructiveButtonTitle:@"放弃拍摄"
+                                             otherButtonTitles:nil];
+    [sheet showInView:self.view];
 }
 
 - (IBAction)finishCapture:(id)sender {
@@ -47,6 +53,7 @@ const float kTimerInterval = 0.05f;
 - (void)setupUI
 {
     [self.progressView setProgress:0.0];
+    [self.navigationBar setTitle:[NSString stringWithFormat:@"表演%@",self.selectedWord.name]];
 }
 
 - (void)setupGesture
@@ -98,6 +105,12 @@ const float kTimerInterval = 0.05f;
         return YES;
     }
     return NO;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end
