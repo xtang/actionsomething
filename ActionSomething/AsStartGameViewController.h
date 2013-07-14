@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *level1Button;
 @property (weak, nonatomic) IBOutlet UIButton *level2Button;
 @property (weak, nonatomic) IBOutlet UIButton *level3Button;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

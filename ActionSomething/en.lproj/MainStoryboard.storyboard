@@ -89,6 +89,10 @@
                                     <segue destination="03z-ny-IvJ" kind="modal" identifier="CaptureView3" animates="NO" id="Ltc-2X-l0c"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="g1F-xN-AlL">
+                                <rect key="frame" x="150" y="149" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -97,6 +101,7 @@
                         <outlet property="level1Button" destination="yfw-oq-ucT" id="2bn-Rw-PP4"/>
                         <outlet property="level2Button" destination="ByU-TA-6sU" id="dpE-mR-fX0"/>
                         <outlet property="level3Button" destination="Frg-aH-Zff" id="LA2-Hi-NDw"/>
+                        <outlet property="spinner" destination="g1F-xN-AlL" id="gZu-f9-3DB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJi-er-7GT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,11 +186,17 @@
                                     <navigationItem title="Title" id="p9V-8o-NAl"/>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" id="eBS-lC-12l" userLabel="Capture View" customClass="GPUImageView">
+                                <rect key="frame" x="20" y="113" width="280" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                     </view>
                     <connections>
+                        <outlet property="filterView" destination="eBS-lC-12l" id="kJi-vh-dJg"/>
                         <outlet property="finishButton" destination="hrP-XN-yfL" id="VbP-cu-Dzi"/>
                         <outlet property="navigationBar" destination="p9V-8o-NAl" id="H3c-pA-3g0"/>
                         <outlet property="progressView" destination="ywV-3K-ZR1" id="zln-xZ-fiR"/>
@@ -248,7 +259,7 @@
             <relationships>
                 <relationship kind="action" name="cancelCapture:"/>
                 <relationship kind="action" name="finishCapture:"/>
-                <relationship kind="action" name="handleLongPress:" candidateClass="UILongPressGestureRecognizer"/>
+                <relationship kind="outlet" name="filterView" candidateClass="GPUImageView"/>
                 <relationship kind="outlet" name="finishButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
@@ -259,9 +270,6 @@
         </class>
         <class className="AsProfileViewController" superclassName="AsBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AsProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logout:"/>
-            </relationships>
         </class>
         <class className="AsStartGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AsStartGameViewController.h"/>
@@ -269,7 +277,11 @@
                 <relationship kind="outlet" name="level1Button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="level2Button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="level3Button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
+        </class>
+        <class className="GPUImageView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPUImageView.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -278,6 +290,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WxY-dm-OGi"/>
+        <segue reference="jyv-Sl-K6v"/>
     </inferredMetricsTieBreakers>
 </document>
